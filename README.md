@@ -20,11 +20,8 @@ Skrip satu perintah untuk menyambung ke Wi-Fi **IPB-ACCESS** di GNU/Linux. Skrip
 
 </div>
 
-<div align="center">
-
-## • Kenapa Skrip Ini Ada? •
-
-</div>
+<details>
+<summary>Kenapa Skrip Ini Ada?</summary>
 
 Di GNU/Linux, `IPB-ACCESS` terhubung dan lolos autentikasi 802.1X, tetapi **tidak mendapat internet**. Windows, macOS, dan Android aman.
 
@@ -41,11 +38,20 @@ ipv4.dhcp-client-id = <MAC interface, tanpa prefix 01>
 
 Setelah itu gateway, DNS, dan internet normal.
 
-### Harapan (dengan sedikit doa)
+</details>
+
+<details>
+<summary>Harapan (dengan sedikit doa)</summary>
 
 Semoga ICT IPB **tidak segera** memperbaiki celah ini — selama bug-nya masih ada, skrip ini punya alasan untuk hidup.
 
 Kalau skrip ini membantumu, beri ⭐ **star**. Setiap bintang menambah peluang mahasiswa GNU/Linux lain menemukannya.
+
+**Riwayat bintang:**
+
+[![Star History Chart](https://api.star-history.com/svg?repos=IPBOS/access-connect&type=Date)](https://star-history.com/#IPBOS/access-connect&Date)
+
+</details>
 
 <div align="center">
 
@@ -180,7 +186,7 @@ Contoh:
 - Membuat/memperbarui profil NetworkManager `IPB-ACCESS` (persisten, autoconnect).
 - WPA-Enterprise otomatis: EAP `PEAP`, Phase 2 `GTC`.
 - Menerima `ID-IPB` singkat (`username`) atau lengkap (`username@apps.ipb.ac.id`).
-- `dhcp-client-id` = MAC mentah tanpa prefix `01:` — inti perbaikannya (lihat [Kenapa Skrip Ini Ada?](#kenapa-skrip-ini-ada)).
+- `dhcp-client-id` = MAC mentah tanpa prefix `01:` — inti perbaikannya (lihat **Kenapa Skrip Ini Ada?** di atas).
 - Verifikasi koneksi: alamat IPv4 + ping gateway.
 - Mode `--forget` (hapus profil) dan `--no-connect`.
 
