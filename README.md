@@ -4,8 +4,11 @@
 
 # Access Connect
 
-![sh](https://img.shields.io/badge/sh-POSIX-4EAA25?logo=gnubash&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)
+<img src="https://img.shields.io/github/stars/IPBOS/access-connect?style=for-the-badge&color=5A58DE&logoColor=DCE3FF&labelColor=0A0930&logo=github" alt="stars">
+<img src="https://img.shields.io/github/last-commit/IPBOS/access-connect?style=for-the-badge&color=4A48D2&logo=git&logoColor=DCE3FF&labelColor=0A0930" alt="last commit">
+<img src="https://img.shields.io/github/license/IPBOS/access-connect?style=for-the-badge&color=3A38C6&logoColor=DCE3FF&labelColor=0A0930&logo=opensourceinitiative" alt="license">
+<img src="https://img.shields.io/badge/sh-POSIX-2624B6?style=for-the-badge&logo=gnubash&logoColor=DCE3FF&labelColor=0A0930" alt="sh">
+<img src="https://img.shields.io/badge/Linux-0C0B8A?style=for-the-badge&logo=linux&logoColor=DCE3FF&labelColor=0A0930" alt="linux">
 
 Skrip untuk menyambung ke Wi-Fi **IPB-ACCESS** di GNU/Linux lewat NetworkManager (`nmcli`), lengkap dengan pembuatan profil 802.1X yang persisten. Skrip ini dibuat karena ICT IPB **tidak melihat Linux sebagai OS umum** yang biasa dipakai mahasiswa, sehingga tidak menyediakan layanan terbaik untuk connect ke wifi `ipb-access` melalui GNU/Linux.
 
@@ -16,6 +19,9 @@ Skrip untuk menyambung ke Wi-Fi **IPB-ACCESS** di GNU/Linux lewat NetworkManager
 Di GNU/Linux, `IPB-ACCESS` sebenarnya **bisa terhubung dan lolos autentikasi 802.1X**, tetapi **tidak mendapat akses internet**. Windows, macOS, dan Android tidak mengalami hal ini.
 
 **Akar masalahnya ada di sisi DHCP `IPB-ACCESS`, bukan di konfigurasi pengguna.** Klien Linux mengirim DHCP client-id dengan format `01:<MAC>` — byte tipe perangkat keras `0x01` di depan MAC (format RFC 4361). DHCP/NAC IPB belum menangani format ini dengan benar, sehingga klien Linux dilempar ke scope rusak (`10.2.160.0/20`) yang gateway-nya tidak merespons. Klien Windows/macOS/Android yang mengirim client-id **tanpa** prefix tipe mendapat scope normal (`10.1.192.0/20`) dan langsung jalan.
+
+> [!WARNING]
+> Tanpa setelan `ipv4.dhcp-client-id`, profil Linux apa pun — termasuk yang dibuat manual lewat GUI — akan tetap dilempar ke scope rusak `10.2.160.0/20`: tersambung, tetapi internet mati. Skrip ini menanganinya otomatis.
 
 Skrip ini mengatasinya dengan memaksa klien Linux mengirim DHCP client-id seperti OS lain — **MAC mentah tanpa byte `01:`**:
 
@@ -31,7 +37,9 @@ Semoga ICT IPB **tidak segera** memperbaiki celah ini. Bukan karena kami menolak
 
 Kalau skrip ini membantumu, bantu kami dengan memberi ⭐ **star** di repositori ini. Setiap bintang menambah peluang skrip ini ditemukan mahasiswa GNU/Linux lain yang sedang berjuang menyambung ke `IPB-ACCESS`, dan semoga suatu hari ia muncul di daftar populer GitHub. Warisan kecil dari sebuah keterbatasan.
 
-[![GitHub stars](https://img.shields.io/github/stars/IPBOS/access-connect?style=social)](https://github.com/IPBOS/access-connect)
+**Riwayat bintang:**
+
+[![Star History Chart](https://api.star-history.com/svg?repos=IPBOS/access-connect&type=Date)](https://star-history.com/#IPBOS/access-connect&Date)
 
 ## Prasyarat
 
@@ -131,7 +139,8 @@ menyambung. Jika penyimpanan profil gagal karena izin, jalankan ulang dengan `su
 sudo ./access-connect.sh
 ```
 
-### Opsi
+<details>
+<summary>Opsi</summary>
 
 | Opsi | Keterangan |
 | --- | --- |
@@ -151,7 +160,10 @@ Contoh:
 ./access-connect.sh --forget
 ```
 
-## Fitur
+</details>
+
+<details>
+<summary>Fitur</summary>
 
 - Membuat/memperbarui profil NetworkManager untuk `IPB-ACCESS` (persisten, autoconnect).
 - Konfigurasi WPA-Enterprise otomatis: EAP `PEAP` dengan Phase 2 `GTC`.
@@ -159,6 +171,8 @@ Contoh:
 - `dhcp-client-id` diset ke MAC mentah tanpa prefix `01:` — ini inti perbaikannya, lihat [Kenapa Skrip Ini Ada?](#kenapa-skrip-ini-ada).
 - Verifikasi koneksi setelah tersambung (alamat IPv4 dan ping ke gateway).
 - Mode hapus profil (`--forget`) dan mode hanya-buat-profil (`--no-connect`).
+
+</details>
 
 ## Alur Kerja
 
