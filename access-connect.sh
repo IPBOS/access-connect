@@ -53,7 +53,7 @@ fi
 MAC="$(cat "/sys/class/net/$IFACE/address" | tr 'A-Z' 'a-z')"
 
 # ---- input ID-IPB ----
-printf 'ID-IPB (mis. adityacahyo, atau lengkap: nama@apps.ipb.ac.id): '
+printf 'ID-IPB (mis. username, atau lengkap: username@apps.ipb.ac.id): '
 read -r ID
 [ -n "${ID:-}" ] || { echo "ERROR: ID kosong." >&2; exit 1; }
 
