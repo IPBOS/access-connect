@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://ict.ipb.ac.id/wp-content/uploads/2020/12/Logo-ICT.png" alt="ICT IPB" height="52">
+<!--<img src="https://ict.ipb.ac.id/wp-content/uploads/2020/12/Logo-ICT.png" alt="ICT IPB" height="52">-->
 
 # Access Connect
 
