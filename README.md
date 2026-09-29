@@ -10,11 +10,21 @@
 <img src="https://img.shields.io/badge/sh-POSIX-2624B6?style=for-the-badge&logo=gnubash&logoColor=DCE3FF&labelColor=0A0930" alt="sh">
 <img src="https://img.shields.io/badge/Linux-0C0B8A?style=for-the-badge&logo=linux&logoColor=DCE3FF&labelColor=0A0930" alt="linux">
 
-Skrip satu perintah untuk menyambung ke Wi-Fi **IPB-ACCESS** di GNU/Linux. Skrip ini dibuat karena ICT IPB **tidak melihat Linux sebagai OS umum** yang biasa dipakai mahasiswa, sehingga tidak menyediakan layanan terbaik untuk connect ke wifi `ipb-access` melalui GNU/Linux.
+</div>
+
+<div align="center">
+
+## Overview
 
 </div>
 
+Skrip satu perintah untuk menyambung ke Wi-Fi **IPB-ACCESS** di GNU/Linux. Skrip ini dibuat karena ICT IPB **tidak melihat Linux sebagai OS umum** yang biasa dipakai mahasiswa, sehingga tidak menyediakan layanan terbaik untuk connect ke wifi `ipb-access` melalui GNU/Linux.
+
+<div align="center">
+
 ## Kenapa Skrip Ini Ada?
+
+</div>
 
 Di GNU/Linux, `IPB-ACCESS` terhubung dan lolos autentikasi 802.1X, tetapi **tidak mendapat internet**. Windows, macOS, dan Android aman.
 
@@ -41,14 +51,22 @@ Kalau skrip ini membantumu, beri ⭐ **star**. Setiap bintang menambah peluang m
 
 [![Star History Chart](https://api.star-history.com/svg?repos=IPBOS/access-connect&type=Date)](https://star-history.com/#IPBOS/access-connect&Date)
 
+<div align="center">
+
 ## Prasyarat
+
+</div>
 
 - GNU/Linux dengan NetworkManager (`nmcli`) — cara memasangnya di [Dependensi](#dependensi).
 - Interface Wi-Fi aktif.
 - Akun `ID-IPB` yang valid.
 - Utilitas standar: `awk`, `od`, `tr`, `grep`, `ip`, `ping`.
 
+<div align="center">
+
 ## Instalasi
+
+</div>
 
 ### A — clone repositori
 
@@ -119,7 +137,11 @@ Cek dengan `nmcli device status` — interface Wi-Fi harus bertipe `wifi`.
 
 </details>
 
+<div align="center">
+
 ## Cara Pakai
+
+</div>
 
 Jalankan skrip, lalu masukkan `ID-IPB` dan password:
 
@@ -168,7 +190,11 @@ Contoh:
 
 </details>
 
+<div align="center">
+
 ## Alur Kerja
+
+</div>
 
 1. Cek `nmcli`.
 2. Deteksi interface Wi-Fi + ambil MAC.
@@ -176,7 +202,11 @@ Contoh:
 4. Buat/perbarui profil dengan konfigurasi 802.1X.
 5. Sambung ke `IPB-ACCESS`, verifikasi IPv4 dan gateway.
 
+<div align="center">
+
 ## Troubleshooting
+
+</div>
 
 - **`nmcli tidak ditemukan`** — pasang NetworkManager, pastikan `nmcli` ada di `PATH`.
 - **`tidak ada interface Wi-Fi`** — nyalakan/muat driver Wi-Fi (`nmcli dev status`).
@@ -190,6 +220,10 @@ Contoh:
   ./access-connect.sh
   ```
 
+<div align="center">
+
 ## Lisensi
+
+</div>
 
 Didistribusikan di bawah lisensi [MIT](LICENSE).
