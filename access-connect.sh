@@ -2,6 +2,18 @@
 
 set -u
 
+# Pulihkan mode echo terminal bila skrip berhenti saat input password (mis. Ctrl-C).
+STTY_OFF=""
+restore_stty() {
+    if [ -n "$STTY_OFF" ]; then
+        stty echo 2>/dev/null
+        STTY_OFF=""
+    fi
+}
+trap 'restore_stty' EXIT
+trap 'restore_stty; exit 130' INT
+trap 'restore_stty; exit 143' TERM
+
 PROFILE="IPB-ACCESS"
 SSID="IPB-ACCESS"
 DOMAIN="apps.ipb.ac.id"
@@ -32,7 +44,27 @@ while [ $# -gt 0 ]; do
     esac
 done
 
-[ -x "$NMC" ] || { echo "ERROR: nmcli tidak ditemukan." >&2; exit 1; }
+# ---- cek dependensi ----
+if [ ! -x "$NMC" ]; then
+    echo "ERROR: nmcli tidak ditemukan." >&2
+    echo "Pasang NetworkManager lebih dulu (lihat bagian Instalasi di README)." >&2
+    exit 1
+fi
+
+MISSING=""
+for cmd in awk od tr grep; do
+    command -v "$cmd" >/dev/null 2>&1 || MISSING="$MISSING $cmd"
+done
+if [ -n "$MISSING" ]; then
+    echo "ERROR: perintah wajib tidak ditemukan:$MISSING" >&2
+    echo "Pasang paket terkait lalu jalankan ulang." >&2
+    exit 1
+fi
+
+for cmd in ip ping stty; do
+    command -v "$cmd" >/dev/null 2>&1 || \
+        echo "PERINGATAN: '$cmd' tidak ditemukan; langkah terkait dilewati." >&2
+done
 
 # ---- mode hapus profil ----
 if [ "$DO_FORGET" -eq 1 ]; then
@@ -64,9 +96,10 @@ esac
 
 # ---- input password (disembunyikan) ----
 printf 'Password ID-IPB: '
-if [ -t 0 ]; then stty -echo 2>/dev/null; fi
+if [ -t 0 ]; then stty -echo 2>/dev/null && STTY_OFF=1; fi
 read -r PW
-if [ -t 0 ]; then stty echo 2>/dev/null; printf '\n'; fi
+restore_stty
+if [ -t 0 ]; then printf '\n'; fi
 [ -n "${PW:-}" ] || { echo "ERROR: password kosong." >&2; exit 1; }
 
 # NetworkManager memakai 802-1x.password-raw (hex). Sediakan keduanya.
