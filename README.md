@@ -2,7 +2,7 @@
 
 <!--<img src="https://ict.ipb.ac.id/wp-content/uploads/2020/12/Logo-ICT.png" alt="ICT IPB" height="52">-->
 
-# Access Connect
+# [ Access Connect ]
 
 <img src="https://img.shields.io/github/stars/IPBOS/access-connect?style=for-the-badge&color=5A58DE&logoColor=DCE3FF&labelColor=0A0930&logo=github" alt="stars">
 <img src="https://img.shields.io/github/last-commit/IPBOS/access-connect?style=for-the-badge&color=4A48D2&logo=git&logoColor=DCE3FF&labelColor=0A0930" alt="last commit">
@@ -14,15 +14,15 @@
 
 <div align="center">
 
-## Overview
-
-</div>
+## • Overview •
 
 Skrip satu perintah untuk menyambung ke Wi-Fi **IPB-ACCESS** di GNU/Linux. Skrip ini dibuat karena ICT IPB **tidak melihat Linux sebagai OS umum** yang biasa dipakai mahasiswa, sehingga tidak menyediakan layanan terbaik untuk connect ke wifi `ipb-access` melalui GNU/Linux.
 
+</div>
+
 <div align="center">
 
-## Kenapa Skrip Ini Ada?
+## • Kenapa Skrip Ini Ada? •
 
 </div>
 
@@ -47,13 +47,9 @@ Semoga ICT IPB **tidak segera** memperbaiki celah ini — selama bug-nya masih a
 
 Kalau skrip ini membantumu, beri ⭐ **star**. Setiap bintang menambah peluang mahasiswa GNU/Linux lain menemukannya.
 
-**Riwayat bintang:**
-
-[![Star History Chart](https://api.star-history.com/svg?repos=IPBOS/access-connect&type=Date)](https://star-history.com/#IPBOS/access-connect&Date)
-
 <div align="center">
 
-## Prasyarat
+## • Prasyarat •
 
 </div>
 
@@ -64,7 +60,7 @@ Kalau skrip ini membantumu, beri ⭐ **star**. Setiap bintang menambah peluang m
 
 <div align="center">
 
-## Instalasi
+## • Instalasi •
 
 </div>
 
@@ -139,7 +135,7 @@ Cek dengan `nmcli device status` — interface Wi-Fi harus bertipe `wifi`.
 
 <div align="center">
 
-## Cara Pakai
+## • Cara Pakai •
 
 </div>
 
@@ -192,7 +188,7 @@ Contoh:
 
 <div align="center">
 
-## Alur Kerja
+## • Alur Kerja •
 
 </div>
 
@@ -204,7 +200,7 @@ Contoh:
 
 <div align="center">
 
-## Troubleshooting
+## • Troubleshooting •
 
 </div>
 
@@ -222,7 +218,7 @@ Contoh:
 
 <div align="center">
 
-## Lisensi
+## • Lisensi •
 
 </div>
 
