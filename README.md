@@ -70,6 +70,16 @@ Kalau skrip ini membantumu, beri ⭐ **star**. Setiap bintang menambah peluang m
 
 </div>
 
+### Dibantu LLM (salin satu instruksi)
+
+Salin instruksi berikut ke LLM yang dapat membaca URL dan menjalankan terminal di komputer Linux yang ingin disambungkan:
+
+```text
+Bantu sambungkan komputer Linux saya ke Wi-Fi IPB-ACCESS. Baca https://raw.githubusercontent.com/IPBOS/access-connect/main/README.llm.md lalu ikuti panduannya secara berurutan. Periksa hasil setiap langkah sebelum lanjut. Minta saya memasukkan ID-IPB dan password langsung di terminal interaktif, bukan di chat. Jangan menganggap koneksi berhasil sebelum verifikasi.
+```
+
+LLM akan membaca [panduan berurutan](README.llm.md) sendiri. Jika LLM tidak memiliki akses terminal lokal, ia akan memandu Anda menjalankan perintah satu per satu.
+
 ### A — clone repositori
 
 ```sh
